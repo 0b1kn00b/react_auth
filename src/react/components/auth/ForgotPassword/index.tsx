@@ -21,22 +21,21 @@ export default ({...props}) => {
       <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={schema}>{
       (props) => {
         return (
-          <Form>
-            <Form.Label htmlFor="email" title="email"></Form.Label>
+          <Form className='grid gap-9'>
             <Tooltip 
-              position="right"
+              position="bottom"
               open={(props.errors.email && props.touched.email) ? true : false}
               message={props.errors.email ?? ""}>
+                <Input 
+                  placeholder='email'
+                  className = {props.touched.email && props.errors.email ? "border-rose-500" : "" }
+                  name="email"
+                  value={props.values.email}
+                  onChange={props.handleChange}
+                  onBlur={props.handleBlur}> 
+                </Input>
             </Tooltip>
-            <Input 
-              className = {props.touched.email && props.errors.email ? "border-rose-500" : "" }
-              name="email"
-              value={props.values.email}
-              onChange={props.handleChange}
-              onBlur={props.handleBlur}> 
-            </Input>
-            <Form.Label htmlFor="submit"></Form.Label>
-            <Button id="submit" type="submit">login</Button>
+            <Button id="submit" type="submit">sign up</Button>
           </Form>
         )
       }

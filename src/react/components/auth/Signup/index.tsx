@@ -32,51 +32,52 @@ export default ({ ...props }) => {
           (props) => {
             console.log(props.errors);
             return (
-            <DForm className="group" onSubmit={props.handleSubmit}>
-              <DForm.Label htmlFor="email" title="email"></DForm.Label>
+            <DForm className="grid gap-9" onSubmit={props.handleSubmit}>
               <Tooltip 
-                position="right"
+                position="bottom"
                 open={(props.errors.email && props.touched.email) ? true : false}
                 message={props.errors.email ?? ""}>
+                  <Input 
+                    className={ 
+                      (props.errors.email && props.touched.email) ? "border-rose-500" : ""  
+                    }
+                    placeholder='email'
+                    onChange={props.handleChange} 
+                    onBlur={props.handleBlur}
+                    value={props.values.email}
+                    id="email" name="email" type="email">
+                  </Input>
               </Tooltip>
-              <Input 
-                className={ 
-                  (props.errors.email && props.touched.email) ? "border-rose-500" : ""  
-                }
-                onChange={props.handleChange} 
-                onBlur={props.handleBlur}
-                value={props.values.email}
-                id="email" name="email" type="email"></Input>
-              <DForm.Label htmlFor="password" title="password"></DForm.Label>
               <Tooltip 
-                position="right"
+                position="bottom"
                 open={(props.errors.password && props.touched.password) ? true : false}
                 message={props.errors.password ?? ""}>
-              </Tooltip>
-              <Input 
-                className={ 
-                  (props.errors.password && props.touched.password) ? "border-rose-500" : ""  
-                }
-                onChange={props.handleChange}
-                onBlur={props.handleBlur}
-                value={props.values.password} 
-                id="password" type="password"></Input>
-              <DForm.Label htmlFor="password_repeat" title="repeat password"></DForm.Label>
-              <Tooltip 
-                position="right"
-                open={(props.errors.password_repeat && props.touched.password_repeat) ? true : false}
-                message={props.errors.password_repeat ?? ""}>
-              </Tooltip>
-              <Input 
-                    className={
-                      (props.errors.password_repeat && props.touched.password_repeat) ? "border-rose-500" : ""  
+                  <Input 
+                    placeholder='password'
+                    className={ 
+                      (props.errors.password && props.touched.password) ? "border-rose-500" : ""  
                     }
-                    onChange={props.handleChange}  
+                    onChange={props.handleChange}
                     onBlur={props.handleBlur}
-                    value={props.values.password_repeat} 
-                    id="password_repeat" type="password">
-              </Input>  
-              <DForm.Label htmlFor="submit"></DForm.Label>
+                    value={props.values.password} 
+                    id="password" type="password">
+                  </Input>
+              </Tooltip>
+              <Tooltip 
+                position="bottom"
+                open={(props.errors.password_repeat && props.touched.password_repeat) ? true : false}
+                message="passwords must match">
+                   <Input 
+                      placeholder='repeat password'
+                          className={
+                            (props.errors.password_repeat && props.touched.password_repeat) ? "border-rose-500" : ""  
+                          }
+                          onChange={props.handleChange}  
+                          onBlur={props.handleBlur}
+                          value={props.values.password_repeat} 
+                          id="password_repeat" type="password">
+                    </Input>  
+              </Tooltip>
               <Button id="submit" type="submit">sign up</Button>
             </DForm>
           )}}

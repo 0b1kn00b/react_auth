@@ -1,6 +1,6 @@
 import React from "react";
 import { Formik } from 'formik';
-import { Hero, Button, Input, Form, Tooltip, Card } from "react-daisyui";
+import { Button, Input, Form, Tooltip, Card } from "react-daisyui";
 import * as Yup from 'yup';
 
 type Inputs = {
@@ -27,35 +27,35 @@ export default ({ ...props }) => {
           <Formik onSubmit={onSubmit} validationSchema={schema} initialValues={initialValues}>{
             (props) => {
               return (
-                <Form>
-                  <Form.Label htmlFor="email" title="email"></Form.Label>
+                <Form className="grid gap-9">
                   <Tooltip 
-                    position="right"
+                    position="bottom"
                     open={(props.errors.email && props.touched.email) ? true : false}
                     message={props.errors.email ?? ""}>
+                      <Input 
+                        placeholder="email"
+                        className =
+                          {props.touched.email && props.errors.email ? "border-rose-500" : "" }
+                        name="email"
+                        value={props.values.email}
+                        onChange={props.handleChange}
+                        onBlur={props.handleBlur}> 
+                      </Input>
                   </Tooltip>
-                  <Input 
-                    className = {props.touched.email && props.errors.email ? "border-rose-500" : "" }
-                    name="email"
-                    value={props.values.email}
-                    onChange={props.handleChange}
-                    onBlur={props.handleBlur}> 
-                  </Input>
-                  <Form.Label htmlFor="password" title="password"></Form.Label>
                   <Tooltip 
-                    position="right"
+                    position="bottom"
                     open={(props.errors.password && props.touched.password) ? true : false}
                     message={props.errors.password ?? ""}>
+                      <Input
+                        placeholder="password"
+                        className = {props.touched.password && props.errors.password ? "border-rose-500" : "" }
+                        name="password"
+                        value={props.values.password} 
+                        type="password"
+                        onChange={props.handleChange}
+                        onBlur={props.handleBlur}>
+                      </Input>
                   </Tooltip>
-                  <Input
-                    className = {props.touched.password && props.errors.password ? "border-rose-500" : "" }
-                    name="password"
-                    value={props.values.password} 
-                    type="password"
-                    onChange={props.handleChange}
-                    onBlur={props.handleBlur}>
-                  </Input>
-                  <Form.Label htmlFor="submit"></Form.Label>
                   <Button id="submit" type="submit">login</Button>
                 </Form>
               )
