@@ -9,6 +9,10 @@ const preview = {
         date: /Date$/i,
       },
     },
+    layout  : "fullscreen",
+    darkMode: {
+      stylePreview: true
+    }
   },
 };
 

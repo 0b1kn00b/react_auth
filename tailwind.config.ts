@@ -16,4 +16,7 @@ export default {
     daisyui,
     tailwindcss_animate
   ],
+  daisyui: {
+    themes: ['light', 'dark']
+  }
 } satisfies Config;
