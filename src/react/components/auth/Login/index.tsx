@@ -56,7 +56,7 @@ export default ({ ...props }) => {
                     onBlur={props.handleBlur}>
                   </Input>
                   <Form.Label htmlFor="submit"></Form.Label>
-                  <Button id="submit" type="submit">submit</Button>
+                  <Button id="submit" type="submit">login</Button>
                 </Form>
               )
             }}
