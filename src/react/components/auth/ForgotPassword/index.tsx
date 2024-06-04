@@ -35,7 +35,7 @@ export default ({...props}) => {
                   onBlur={props.handleBlur}> 
                 </Input>
             </Tooltip>
-            <Button id="submit" type="submit">sign up</Button>
+            <Button id="submit" type="submit">recover password</Button>
           </Form>
         )
       }
