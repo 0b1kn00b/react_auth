@@ -1,2 +1,2 @@
 #!/bin/bash
-git subtree push --prefix storybook-static github storybook
+git push github `git subtree split --prefix storybook-static storybook` --force
